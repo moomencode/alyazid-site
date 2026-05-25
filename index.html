@@ -376,16 +376,16 @@
 
   <!-- Chatbot Toggle Button -->
   <button id="chatToggle" class="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-tertiary text-white shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-    <span class="material-symbols-outlined text-3xl" id="chatIcon">smart_toy</span>
+    <span class="material-symbols-outlined text-3xl" id="chatIcon">chat</span>
   </button>
 
   <!-- Chatbot Widget -->
   <div id="chatWidget" class="fixed bottom-28 right-8 z-50 w-[360px] h-[520px] bg-surface rounded-2xl shadow-2xl border border-outline-variant flex flex-col overflow-hidden transition-all duration-300 opacity-0 scale-95 pointer-events-none origin-bottom-left">
     <div class="bg-primary p-4 text-white flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <span class="material-symbols-outlined text-tertiary-fixed">smart_toy</span>
+        <span class="material-symbols-outlined text-tertiary-fixed">chat</span>
         <div>
-          <h4 class="font-headline-md text-sm">مساعد اليزيد</h4>
+          <h4 class="font-headline-md text-sm">الدردشة المباشرة</h4>
           <p class="text-xs text-primary-fixed-dim">
             <span class="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse ml-1"></span>متصل
           </p>
@@ -398,10 +398,10 @@
     <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-surface-container-lowest">
       <div class="flex gap-3">
         <div class="w-8 h-8 rounded-full bg-tertiary/20 flex items-center justify-center flex-shrink-0">
-          <span class="material-symbols-outlined text-tertiary text-sm">smart_toy</span>
+          <span class="material-symbols-outlined text-tertiary text-sm">chat</span>
         </div>
         <div class="bg-surface-container rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
-          <p class="text-sm text-on-surface">مرحباً بك في اليزيد! أنا مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟ 🚀</p>
+          <p class="text-sm text-on-surface">مرحباً بك في اليزيد! كيف يمكنني مساعدتك؟ 🚀</p>
         </div>
       </div>
     </div>
@@ -430,12 +430,12 @@
       chatWidget.classList.toggle('opacity-0', !open);
       chatWidget.classList.toggle('scale-95', !open);
       chatWidget.classList.toggle('pointer-events-none', !open);
-      chatIcon.textContent = open ? 'close' : 'smart_toy';
+      chatIcon.textContent = open ? 'close' : 'chat';
     });
 
     chatClose.addEventListener('click', () => {
       chatWidget.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-      chatIcon.textContent = 'smart_toy';
+      chatIcon.textContent = 'chat';
     });
 
     const groqKey = [
@@ -500,7 +500,7 @@
       } else {
         div.innerHTML = `
           <div class="w-8 h-8 rounded-full bg-tertiary/20 flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-tertiary text-sm">smart_toy</span>
+            <span class="material-symbols-outlined text-tertiary text-sm">chat</span>
           </div>
           <div class="bg-surface-container rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
             ${content}
