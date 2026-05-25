@@ -323,14 +323,14 @@
         </div>
         <div class="space-y-6">
           <div class="rounded-2xl overflow-hidden shadow-sm min-h-[200px] border border-outline-variant bg-surface-container flex items-center justify-center gap-8 p-6">
-            <div class="text-center">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://wa.me/201146113811" alt="QR واتساب" class="rounded-xl mx-auto mb-3 w-[140px] h-[140px]">
-              <p class="font-label-sm text-on-surface-variant">واتساب</p>
-            </div>
-            <div class="text-center">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://web.facebook.com/profile.php?id=100068719165134" alt="QR فيسبوك" class="rounded-xl mx-auto mb-3 w-[140px] h-[140px]">
-              <p class="font-label-sm text-on-surface-variant">فيسبوك</p>
-            </div>
+            <a href="https://wa.me/201146113811" target="_blank" class="text-center group">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://wa.me/201146113811" alt="QR واتساب" class="rounded-xl mx-auto mb-3 w-[140px] h-[140px] transition-transform group-hover:scale-105">
+              <p class="font-label-sm text-on-surface-variant group-hover:text-tertiary transition-colors">واتساب</p>
+            </a>
+            <a href="https://web.facebook.com/profile.php?id=100068719165134" target="_blank" class="text-center group">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://web.facebook.com/profile.php?id=100068719165134" alt="QR فيسبوك" class="rounded-xl mx-auto mb-3 w-[140px] h-[140px] transition-transform group-hover:scale-105">
+              <p class="font-label-sm text-on-surface-variant group-hover:text-tertiary transition-colors">فيسبوك</p>
+            </a>
           </div>
           <div class="rounded-2xl overflow-hidden shadow-sm min-h-[160px] border border-outline-variant bg-surface-container flex flex-col items-center justify-center gap-3 p-6">
             <span class="material-symbols-outlined text-tertiary text-4xl">map</span>
