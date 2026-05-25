@@ -229,6 +229,10 @@
           <h2 class="font-display-lg text-4xl text-primary mb-2">منتجاتنا</h2>
           <div class="h-1 w-20 bg-tertiary"></div>
         </div>
+        <button id="menuBtn" class="hidden md:flex items-center gap-2 bg-tertiary text-white px-6 py-3 rounded-xl font-label-md hover:bg-tertiary/90 transition-all hover:scale-105 shadow-lg">
+          <span class="material-symbols-outlined text-lg">menu_book</span>
+          المنيو الكامل
+        </button>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div class="md:col-span-2 group relative overflow-hidden rounded-2xl h-[500px]">
@@ -347,6 +351,129 @@
     </div>
   </section>
 
+  <!-- Premium Menu Modal -->
+  <div id="menuModal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="bg-surface rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+      <div class="sticky top-0 bg-surface z-10 flex items-center justify-between p-6 border-b border-outline-variant">
+        <div>
+          <h3 class="font-display-lg text-2xl text-primary">المنيو الكامل</h3>
+          <p class="text-sm text-on-surface-variant">جميع منتجات اليزيد للاستيراد والتصدير والعطارة والحبوب</p>
+        </div>
+        <button id="menuClose" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-on-surface-variant">close</span>
+        </button>
+      </div>
+      <div class="p-6 space-y-8">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-tertiary text-2xl">agriculture</span>
+            </div>
+            <div>
+              <h4 class="font-headline-md text-xl text-primary">الأرز البسمتي الهندي</h4>
+              <p class="text-sm text-on-surface-variant">أجود أنواع الأرز الهندي الفاخر</p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="flex gap-4 p-4 bg-surface-container-low rounded-2xl border border-outline-variant/50 hover:border-tertiary/30 transition-colors">
+              <img src="images/rice-1121-1.jpg" alt="أرز بسمتي 1121" class="w-20 h-20 rounded-xl object-cover flex-shrink-0">
+              <div>
+                <h5 class="font-headline-md text-primary mb-1">أرز بسمتي 1121</h5>
+                <p class="text-xs text-on-surface-variant leading-relaxed">أرز بسمتي هندي طويل الحبة، يتميز بطول حبته ورائحته العطرية. مثالي للأطباق الفاخرة والمطاعم.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 p-4 bg-surface-container-low rounded-2xl border border-outline-variant/50 hover:border-tertiary/30 transition-colors">
+              <img src="images/rice-pr11.jpg" alt="أرز بسمتي PR11" class="w-20 h-20 rounded-xl object-cover flex-shrink-0">
+              <div>
+                <h5 class="font-headline-md text-primary mb-1">أرز بسمتي PR11</h5>
+                <p class="text-xs text-on-surface-variant leading-relaxed">أرز بسمتي هندي متوسط الحبة، جودة عالية وسعر مناسب للاستهلاك اليومي.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-tertiary text-2xl">spa</span>
+            </div>
+            <div>
+              <h4 class="font-headline-md text-xl text-primary">العطارة والبهارات</h4>
+              <p class="text-sm text-on-surface-variant">بهارات طبيعية فاخرة من أجود المحاصيل</p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-4 grid-cols-2 gap-3">
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">حبهان</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">كاري مطحون</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">كركم مطحون</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">كركم حصى</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">فلفل برازيلي</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">فلفل فيتنامي</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">كزبرة سوري</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">كزبرة روسي</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">كمون حصا</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">جوزة الطيب</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">ورق لوري</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">كباب صيني</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">قرنفل مسمار</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">ينسون بلدي</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">قرفة سيجار</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">قرفة كسر</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">قرفة عود</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">جنزبيل حصى</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">ملح صيني</span></div>
+            <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">eco</span><span class="text-xs font-semibold text-primary">ملح ليمون</span></div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-tertiary text-2xl">grass</span>
+              </div>
+              <div>
+                <h4 class="font-headline-md text-xl text-primary">الحبوب</h4>
+                <p class="text-sm text-on-surface-variant">حبوب طبيعية فاخرة</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">grass</span><span class="text-xs font-semibold text-primary">شوفان</span></div>
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">grass</span><span class="text-xs font-semibold text-primary">لبان دكر</span></div>
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">grass</span><span class="text-xs font-semibold text-primary">صمغ عربي</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-tertiary text-2xl">seed</span>
+              </div>
+              <div>
+                <h4 class="font-headline-md text-xl text-primary">البقوليات</h4>
+                <p class="text-sm text-on-surface-variant">بقوليات عالية الجودة</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">seed</span><span class="text-xs font-semibold text-primary">فول بلدي</span></div>
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">seed</span><span class="text-xs font-semibold text-primary">عدس أصفر</span></div>
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">seed</span><span class="text-xs font-semibold text-primary">عدس بجيه</span></div>
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">seed</span><span class="text-xs font-semibold text-primary">حمص وسط</span></div>
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">seed</span><span class="text-xs font-semibold text-primary">حمص رفيع</span></div>
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">seed</span><span class="text-xs font-semibold text-primary">فاصوليا</span></div>
+              <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-2xl">seed</span><span class="text-xs font-semibold text-primary">لوبيا برزيلي</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sticky bottom-0 bg-surface border-t border-outline-variant p-4 text-center">
+        <a href="https://wa.me/201146113811" target="_blank" class="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-xl font-label-md hover:bg-[#1da851] transition-colors">
+          <svg class="w-5 h-5 fill-white" viewBox="0 0 48 48"><path d="M24.003 0C10.748 0 0 10.747 0 24.003c0 4.708 1.36 9.297 3.933 13.235L1.437 47.32l10.348-2.48A23.95 23.95 0 0 0 24.003 48C37.253 48 48 37.253 48 24.003S37.253 0 24.003 0Zm13.665 33.91c-.683 1.926-2.116 3.584-3.71 4.33-1.695.793-3.178.802-5.213.165-2.684-.838-5.682-2.71-8.555-5.582-2.878-2.878-4.725-5.836-5.565-8.532-.653-2.092-.64-3.636.157-5.21.803-1.589 2.458-3.028 4.385-3.713.42-.15.876-.15 1.27.007.396.156.654.464.865.92.45.97 1.326 2.478 1.596 3.065.17.37.28.787.145 1.15-.19.508-.571.879-.903 1.24-.225.247-.395.431-.59.593-.5.465-1.04.953-.75 1.694.578 1.476 2.56 3.857 4.5 5.165 1.446.974 2.955 1.678 4.293 2.06.576.164 1.025-.062 1.361-.473.444-.543.99-1.316 1.56-1.95.424-.472.923-.646 1.432-.502.508.145 3.188 1.596 3.74 1.889.547.292.904.43 1.034.683.13.252.13 1.422-.553 3.346Z"/></svg>
+          طلب عبر واتساب
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-primary py-12 px-6">
     <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
@@ -385,6 +512,38 @@
         nav.classList.remove('py-2', 'shadow-md');
       }
     });
+
+    // ---------- Premium Menu Modal ----------
+    const menuBtn = document.getElementById('menuBtn');
+    const menuModal = document.getElementById('menuModal');
+    const menuClose = document.getElementById('menuClose');
+
+    menuBtn.addEventListener('click', () => {
+      menuModal.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
+    });
+
+    menuClose.addEventListener('click', () => {
+      menuModal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+    });
+
+    menuModal.addEventListener('click', (e) => {
+      if (e.target === menuModal) {
+        menuModal.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Add mobile menu button
+    const menuBtnMobile = document.createElement('button');
+    menuBtnMobile.className = 'flex md:hidden items-center gap-2 bg-tertiary text-white px-5 py-2.5 rounded-xl font-label-md hover:bg-tertiary/90 transition-all mt-4';
+    menuBtnMobile.innerHTML = '<span class="material-symbols-outlined text-lg">menu_book</span> المنيو الكامل';
+    menuBtnMobile.addEventListener('click', () => {
+      menuModal.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
+    });
+    document.querySelector('#products .flex.justify-between').appendChild(menuBtnMobile);
   </script>
 
   <!-- Chatbot Toggle Button -->
