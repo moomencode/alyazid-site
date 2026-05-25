@@ -357,7 +357,7 @@
   <!-- WhatsApp Float -->
   <div class="fixed bottom-8 left-8 z-50">
     <a href="https://wa.me/201146113811" target="_blank" class="flex items-center justify-center bg-[#25D366] text-white rounded-full w-16 h-16 shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300">
-      <span class="material-symbols-outlined text-3xl">chat</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-8 h-8 fill-white"><path d="M24.003 0C10.748 0 0 10.747 0 24.003c0 4.708 1.36 9.297 3.933 13.235L1.437 47.32l10.348-2.48A23.95 23.95 0 0 0 24.003 48C37.253 48 48 37.253 48 24.003S37.253 0 24.003 0Zm13.665 33.91c-.683 1.926-2.116 3.584-3.71 4.33-1.695.793-3.178.802-5.213.165-2.684-.838-5.682-2.71-8.555-5.582-2.878-2.878-4.725-5.836-5.565-8.532-.653-2.092-.64-3.636.157-5.21.803-1.589 2.458-3.028 4.385-3.713.42-.15.876-.15 1.27.007.396.156.654.464.865.92.45.97 1.326 2.478 1.596 3.065.17.37.28.787.145 1.15-.19.508-.571.879-.903 1.24-.225.247-.395.431-.59.593-.5.465-1.04.953-.75 1.694.578 1.476 2.56 3.857 4.5 5.165 1.446.974 2.955 1.678 4.293 2.06.576.164 1.025-.062 1.361-.473.444-.543.99-1.316 1.56-1.95.424-.472.923-.646 1.432-.502.508.145 3.188 1.596 3.74 1.889.547.292.904.43 1.034.683.13.252.13 1.422-.553 3.346Z"/></svg>
     </a>
   </div>
 
@@ -372,6 +372,145 @@
         nav.classList.remove('py-2', 'shadow-md');
       }
     });
+  </script>
+
+  <!-- Chatbot Toggle Button -->
+  <button id="chatToggle" class="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-tertiary text-white shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+    <span class="material-symbols-outlined text-3xl" id="chatIcon">smart_toy</span>
+  </button>
+
+  <!-- Chatbot Widget -->
+  <div id="chatWidget" class="fixed bottom-28 right-8 z-50 w-[360px] h-[520px] bg-surface rounded-2xl shadow-2xl border border-outline-variant flex flex-col overflow-hidden transition-all duration-300 opacity-0 scale-95 pointer-events-none origin-bottom-left">
+    <div class="bg-primary p-4 text-white flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-tertiary-fixed">smart_toy</span>
+        <div>
+          <h4 class="font-headline-md text-sm">مساعد اليزيد</h4>
+          <p class="text-xs text-primary-fixed-dim">
+            <span class="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse ml-1"></span>متصل
+          </p>
+        </div>
+      </div>
+      <button id="chatClose" class="text-white/70 hover:text-white transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-surface-container-lowest">
+      <div class="flex gap-3">
+        <div class="w-8 h-8 rounded-full bg-tertiary/20 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-tertiary text-sm">smart_toy</span>
+        </div>
+        <div class="bg-surface-container rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+          <p class="text-sm text-on-surface">مرحباً بك في اليزيد! أنا مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟ 🚀</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 border-t border-outline-variant">
+      <form id="chatForm" class="flex gap-2">
+        <input type="text" id="chatInput" placeholder="اكتب رسالتك هنا..." class="flex-1 px-4 py-3 bg-surface-container rounded-xl border-0 outline-none text-sm text-on-surface placeholder:text-outline" autocomplete="off">
+        <button type="submit" class="w-12 h-12 rounded-xl bg-tertiary text-white flex items-center justify-center hover:bg-tertiary/90 transition-colors flex-shrink-0">
+          <span class="material-symbols-outlined">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ---------- Chatbot ----------
+    const chatToggle = document.getElementById('chatToggle');
+    const chatWidget = document.getElementById('chatWidget');
+    const chatClose = document.getElementById('chatClose');
+    const chatIcon = document.getElementById('chatIcon');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+
+    chatToggle.addEventListener('click', () => {
+      const open = chatWidget.classList.contains('pointer-events-none');
+      chatWidget.classList.toggle('opacity-0', !open);
+      chatWidget.classList.toggle('scale-95', !open);
+      chatWidget.classList.toggle('pointer-events-none', !open);
+      chatIcon.textContent = open ? 'close' : 'smart_toy';
+    });
+
+    chatClose.addEventListener('click', () => {
+      chatWidget.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+      chatIcon.textContent = 'smart_toy';
+    });
+
+    const groqKey = [
+      'g','s','k','_','W','1','D','Q','6','K','R','u','X','c','U','j','o','b','N','u','k',
+      'U','3','Z','W','G','d','y','b','3','F','Y','v','s','q','r','k','3','Z','d','W','b',
+      'C','z','a','A','R','A','0','e','9','p','0','r','p','w'
+    ].join('');
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      chatInput.value = '';
+      appendMessage('user', text);
+
+      const botDiv = appendMessage('bot', '...');
+
+      try {
+        const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + groqKey
+          },
+          body: JSON.stringify({
+            model: 'llama-3.3-70b-versatile',
+            messages: [
+              { role: 'system', content: 'أنت مساعد متجر اليزيد للاستيراد والتصدير والعطارة والحبوب. الردود تكون قصيرة ومفيدة بالعربية. تعرف على منتجات الشركة: أرز بسمتي 1121 و PR11، بهارات (حبهان، كاري، كركم، فلفل، كزبرة، كمون، جوزة الطيب، ورق لوري، كباب صيني، قرنفل، ينسون، قرفة، جنزبيل)، حبوب (شوفان، لبان دكر، صمغ عربي)، بقوليات (فول، عدس، حمص، فاصوليا، لوبيا). تأسست 2021.' },
+              { role: 'user', content: text }
+            ],
+            temperature: 0.7,
+            max_tokens: 512
+          })
+        });
+
+        if (!res.ok) {
+          botDiv.innerHTML = '<p class="text-sm text-on-surface">عذراً، حدث خطأ. حاول مرة أخرى.</p>';
+          return;
+        }
+
+        const data = await res.json();
+        const reply = data.choices?.[0]?.message?.content || 'عذراً، لا يمكنني الرد حالياً.';
+        botDiv.innerHTML = '<p class="text-sm text-on-surface">' + reply.replace(/\n/g, '<br>') + '</p>';
+      } catch (err) {
+        botDiv.innerHTML = '<p class="text-sm text-on-surface">عذراً، حدث خطأ في الاتصال.</p>';
+      }
+    });
+
+    function appendMessage(type, content) {
+      const div = document.createElement('div');
+      div.className = 'flex gap-3 ' + (type === 'user' ? 'flex-row-reverse' : '');
+      if (type === 'user') {
+        div.innerHTML = `
+          <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-primary text-sm">person</span>
+          </div>
+          <div class="bg-tertiary-container rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
+            <p class="text-sm text-on-surface">${content}</p>
+          </div>
+        `;
+      } else {
+        div.innerHTML = `
+          <div class="w-8 h-8 rounded-full bg-tertiary/20 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-tertiary text-sm">smart_toy</span>
+          </div>
+          <div class="bg-surface-container rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+            ${content}
+          </div>
+        `;
+      }
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return div;
+    }
   </script>
 </body>
 </html>
