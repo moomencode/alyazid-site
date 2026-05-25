@@ -417,6 +417,12 @@
           <p class="text-sm text-on-surface">مرحباً بك في اليزيد! كيف يمكنني مساعدتك؟ 🚀</p>
         </div>
       </div>
+      <div class="flex flex-wrap gap-2 px-2" id="quickReplies">
+        <button class="quick-reply text-xs bg-tertiary/10 text-tertiary px-3 py-1.5 rounded-full hover:bg-tertiary/20 transition-colors" data-msg="عايز أعرف منتجاتكم">المنتجات</button>
+        <button class="quick-reply text-xs bg-tertiary/10 text-tertiary px-3 py-1.5 rounded-full hover:bg-tertiary/20 transition-colors" data-msg="عايز رقم التواصل">رقم التواصل</button>
+        <button class="quick-reply text-xs bg-tertiary/10 text-tertiary px-3 py-1.5 rounded-full hover:bg-tertiary/20 transition-colors" data-msg="عايز عنوان الشركة">العنوان</button>
+        <button class="quick-reply text-xs bg-tertiary/10 text-tertiary px-3 py-1.5 rounded-full hover:bg-tertiary/20 transition-colors" data-msg="عايز أتكلم مع موظف">تواصل بشري</button>
+      </div>
     </div>
     <div class="p-4 border-t border-outline-variant">
       <form id="chatForm" class="flex gap-2">
@@ -451,11 +457,28 @@
       chatIcon.textContent = 'chat';
     });
 
+    // Quick reply buttons
+    document.querySelectorAll('.quick-reply').forEach(btn => {
+      btn.addEventListener('click', () => {
+        chatInput.value = btn.dataset.msg;
+        chatForm.dispatchEvent(new Event('submit'));
+      });
+    });
+
     const groqKey = [
       'g','s','k','_','W','1','D','Q','6','K','R','u','X','c','U','j','o','b','N','u','k',
       'U','3','Z','W','G','d','y','b','3','F','Y','v','s','q','r','k','3','Z','d','W','b',
       'C','z','a','A','R','A','0','e','9','p','0','r','p','w'
     ].join('');
+
+    function addWhatsAppButton(container) {
+      const wa = document.createElement('a');
+      wa.href = 'https://wa.me/201146113811';
+      wa.target = '_blank';
+      wa.className = 'inline-flex items-center gap-1.5 bg-[#25D366] text-white text-xs px-4 py-2 rounded-full mt-2 hover:bg-[#1da851] transition-colors';
+      wa.innerHTML = '<svg class="w-4 h-4 fill-white" viewBox="0 0 48 48"><path d="M24.003 0C10.748 0 0 10.747 0 24.003c0 4.708 1.36 9.297 3.933 13.235L1.437 47.32l10.348-2.48A23.95 23.95 0 0 0 24.003 48C37.253 48 48 37.253 48 24.003S37.253 0 24.003 0Zm13.665 33.91c-.683 1.926-2.116 3.584-3.71 4.33-1.695.793-3.178.802-5.213.165-2.684-.838-5.682-2.71-8.555-5.582-2.878-2.878-4.725-5.836-5.565-8.532-.653-2.092-.64-3.636.157-5.21.803-1.589 2.458-3.028 4.385-3.713.42-.15.876-.15 1.27.007.396.156.654.464.865.92.45.97 1.326 2.478 1.596 3.065.17.37.28.787.145 1.15-.19.508-.571.879-.903 1.24-.225.247-.395.431-.59.593-.5.465-1.04.953-.75 1.694.578 1.476 2.56 3.857 4.5 5.165 1.446.974 2.955 1.678 4.293 2.06.576.164 1.025-.062 1.361-.473.444-.543.99-1.316 1.56-1.95.424-.472.923-.646 1.432-.502.508.145 3.188 1.596 3.74 1.889.547.292.904.43 1.034.683.13.252.13 1.422-.553 3.346Z"/></svg> تواصل عبر واتساب';
+      container.parentElement.appendChild(wa);
+    }
 
     chatForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -465,7 +488,15 @@
       chatInput.value = '';
       appendMessage('user', text);
 
-      const botDiv = appendMessage('bot', '...');
+      // Check if user wants human
+      const humanKeywords = ['موظف', 'بشر', 'human', 'استاذ يوسف', 'كلمني', 'اتصل', 'مكالمة'];
+      if (humanKeywords.some(k => text.includes(k))) {
+        const div = appendMessage('bot', '<p class="text-sm text-on-surface">يمكنك التواصل المباشر مع الأستاذ يوسف عبر واتساب:</p>');
+        addWhatsAppButton(div.querySelector('.bg-surface-container') || div);
+        return;
+      }
+
+      const botDiv = appendMessage('bot', '<p class="text-sm text-on-surface">...</p>');
 
       try {
         const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -486,7 +517,8 @@
         });
 
         if (!res.ok) {
-          botDiv.innerHTML = '<p class="text-sm text-on-surface">عذراً، حدث خطأ. حاول مرة أخرى.</p>';
+          botDiv.innerHTML = '<p class="text-sm text-on-surface">عذراً، حدث خطأ في الاتصال بالمساعد.</p>';
+          addWhatsAppButton(botDiv);
           return;
         }
 
@@ -495,6 +527,7 @@
         botDiv.innerHTML = '<p class="text-sm text-on-surface">' + reply.replace(/\n/g, '<br>') + '</p>';
       } catch (err) {
         botDiv.innerHTML = '<p class="text-sm text-on-surface">عذراً، حدث خطأ في الاتصال.</p>';
+        addWhatsAppButton(botDiv);
       }
     });
 
