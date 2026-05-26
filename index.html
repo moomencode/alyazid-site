@@ -569,6 +569,35 @@
       }
     });
 
+    // ---------- Image Lightbox ----------
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.className = 'fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300';
+    lightbox.innerHTML = '<button id="lightboxClose" class="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"><span class="material-symbols-outlined">close</span></button><img id="lightboxImg" src="" alt="" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl">';
+    document.body.appendChild(lightbox);
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+    });
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+      }
+    });
+    document.querySelectorAll('img[src*="products/"]').forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
     // Add mobile menu button
     const menuBtnMobile = document.createElement('button');
     menuBtnMobile.className = 'flex md:hidden items-center gap-2 bg-tertiary text-white px-5 py-2.5 rounded-xl font-label-md hover:bg-tertiary/90 transition-all mt-4';
