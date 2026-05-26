@@ -235,7 +235,7 @@
         </button>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="md:col-span-2 group relative overflow-hidden rounded-2xl h-[500px]">
+        <div class="md:col-span-2 group relative overflow-hidden rounded-2xl h-[500px] cursor-pointer open-menu-section" data-section="rice">
           <img src="images/hero-rice.jpg" alt="الأرز الفاخر" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-8 flex flex-col justify-end text-white">
             <div class="mb-4">
@@ -245,33 +245,48 @@
             <p class="font-body-md mb-4 opacity-80">أرز بسمتي 1121 و PR11 بجودة عالية.</p>
           </div>
         </div>
-        <div class="group relative overflow-hidden rounded-2xl h-[500px]">
+        <div class="group relative overflow-hidden rounded-2xl h-[500px] cursor-pointer open-menu-section" data-section="spices">
           <img src="images/spices-bg.jpg" alt="العطارة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-primary/10 flex items-center justify-center p-8 text-center">
-            <div>
-              <span class="material-symbols-outlined text-tertiary-fixed text-5xl mb-4">spa</span>
-              <h3 class="font-headline-lg text-2xl text-white mb-3">العطارة</h3>
-              <p class="font-body-md text-primary-fixed-dim">حبهان، كاري، كركم، فلفل، كزبرة، كمون، جوزة الطيب، ورق لوري، كباب صيني، قرنفل، ينسون، قرفة، جنزبيل، ملح</p>
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-6">
+            <div class="mb-3">
+              <span class="material-symbols-outlined text-tertiary-fixed text-4xl">spa</span>
+              <h3 class="font-headline-lg text-2xl text-white">العطارة والبهارات</h3>
+              <p class="text-sm text-primary-fixed-dim mb-3">أكثر من ٢٠ صنف فاخر</p>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+              <div class="flex flex-col items-center gap-1"><img src="images/products/حبهان.jpg" alt="حبهان" class="w-12 h-12 rounded-full object-cover border-2 border-white/30 shadow-lg"><span class="text-[10px] text-white/80">حبهان</span></div>
+              <div class="flex flex-col items-center gap-1"><img src="images/products/فلفل اسود حصي.jpg" alt="فلفل" class="w-12 h-12 rounded-full object-cover border-2 border-white/30 shadow-lg"><span class="text-[10px] text-white/80">فلفل</span></div>
+              <div class="flex flex-col items-center gap-1"><img src="images/products/كسبره حصي.jpg" alt="كزبرة" class="w-12 h-12 rounded-full object-cover border-2 border-white/30 shadow-lg"><span class="text-[10px] text-white/80">كزبرة</span></div>
+              <div class="flex flex-col items-center gap-1"><img src="images/products/جوزت الطيب.jpg" alt="جوزة الطيب" class="w-12 h-12 rounded-full object-cover border-2 border-white/30 shadow-lg"><span class="text-[10px] text-white/80">جوزة الطيب</span></div>
+              <div class="flex flex-col items-center gap-1"><img src="images/products/ينسون.jpg" alt="ينسون" class="w-12 h-12 rounded-full object-cover border-2 border-white/30 shadow-lg"><span class="text-[10px] text-white/80">ينسون</span></div>
+              <div class="flex flex-col items-center gap-1"><img src="images/products/جنزبيل.jpg" alt="جنزبيل" class="w-12 h-12 rounded-full object-cover border-2 border-white/30 shadow-lg"><span class="text-[10px] text-white/80">جنزبيل</span></div>
+            </div>
+            <div class="mt-2">
+              <span class="inline-block text-xs text-tertiary-fixed-dim bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm">عرض الكل ←</span>
             </div>
           </div>
         </div>
         <div class="space-y-6">
-          <div class="h-[238px] group relative overflow-hidden rounded-2xl">
-            <div class="absolute inset-0 bg-tertiary-container flex items-center justify-center p-6 text-center">
-              <div>
-                <span class="material-symbols-outlined text-on-tertiary-container text-4xl mb-2">grass</span>
-                <h3 class="font-headline-md text-xl text-on-tertiary-container mb-2">الحبوب</h3>
-                <p class="font-body-md text-on-tertiary-container opacity-80">شوفان، لبان دكر، صمغ عربي</p>
+          <div class="h-[238px] group relative overflow-hidden rounded-2xl cursor-pointer open-menu-section" data-section="grains">
+            <img src="images/products/شوفان.jpg" alt="الحبوب" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent flex flex-col justify-center items-center p-4 text-center">
+              <span class="material-symbols-outlined text-tertiary-fixed text-3xl mb-1">grass</span>
+              <h3 class="font-headline-md text-lg text-white mb-1">الحبوب</h3>
+              <div class="flex gap-1.5 mb-1">
+                <img src="images/products/شوفان.jpg" alt="شوفان" class="w-8 h-8 rounded-full object-cover border border-white/40">
               </div>
+              <p class="text-xs text-primary-fixed-dim">شوفان • لبان دكر • صمغ عربي</p>
             </div>
           </div>
-          <div class="h-[238px] group relative overflow-hidden rounded-2xl">
-            <div class="absolute inset-0 bg-primary-container flex items-center justify-center p-6 text-center">
-              <div>
-                <span class="material-symbols-outlined text-tertiary-fixed text-4xl mb-2">seed</span>
-                <h3 class="font-headline-md text-xl text-white mb-2">البقوليات</h3>
-                <p class="font-body-md text-on-primary-container opacity-80">فول، عدس، حمص، فاصوليا، لوبيا</p>
+          <div class="h-[238px] group relative overflow-hidden rounded-2xl cursor-pointer open-menu-section" data-section="legumes">
+            <img src="images/products/فاصوليا.jpg" alt="البقوليات" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent flex flex-col justify-center items-center p-4 text-center">
+              <span class="material-symbols-outlined text-tertiary-fixed text-3xl mb-1">seed</span>
+              <h3 class="font-headline-md text-lg text-white mb-1">البقوليات</h3>
+              <div class="flex gap-1.5 mb-1">
+                <img src="images/products/فاصوليا.jpg" alt="فاصوليا" class="w-8 h-8 rounded-full object-cover border border-white/40">
               </div>
+              <p class="text-xs text-primary-fixed-dim">فول • عدس • حمص • فاصوليا • لوبيا</p>
             </div>
           </div>
         </div>
@@ -364,7 +379,7 @@
         </button>
       </div>
       <div class="p-6 space-y-8">
-        <div>
+        <div data-section-id="rice">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center">
               <span class="material-symbols-outlined text-tertiary text-2xl">agriculture</span>
@@ -399,7 +414,7 @@
           </div>
         </div>
 
-        <div>
+        <div data-section-id="spices">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center">
               <span class="material-symbols-outlined text-tertiary text-2xl">spa</span>
@@ -434,7 +449,7 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
-          <div>
+          <div data-section-id="grains">
             <div class="flex items-center gap-3 mb-6">
               <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center">
                 <span class="material-symbols-outlined text-tertiary text-2xl">grass</span>
@@ -450,7 +465,7 @@
               <div class="flex flex-col items-center gap-2 p-3 bg-surface-container-low rounded-xl border border-outline-variant/40 hover:border-tertiary/30 transition-colors"><span class="material-symbols-outlined text-tertiary text-3xl">grass</span><span class="text-xs font-semibold text-primary">صمغ عربي</span></div>
             </div>
           </div>
-          <div>
+          <div data-section-id="legumes">
             <div class="flex items-center gap-3 mb-6">
               <div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center">
                 <span class="material-symbols-outlined text-tertiary text-2xl">seed</span>
@@ -525,9 +540,21 @@
     const menuModal = document.getElementById('menuModal');
     const menuClose = document.getElementById('menuClose');
 
-    menuBtn.addEventListener('click', () => {
+    function openMenu(section) {
       menuModal.classList.remove('opacity-0', 'pointer-events-none');
       document.body.style.overflow = 'hidden';
+      if (section) {
+        setTimeout(() => {
+          const el = document.querySelector(`[data-section-id="${section}"]`);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 200);
+      }
+    }
+
+    menuBtn.addEventListener('click', () => openMenu());
+
+    document.querySelectorAll('.open-menu-section').forEach(el => {
+      el.addEventListener('click', () => openMenu(el.dataset.section));
     });
 
     menuClose.addEventListener('click', () => {
